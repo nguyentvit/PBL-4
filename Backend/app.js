@@ -12,6 +12,7 @@ const URL_MONGDB_NGUYEN = 'mongodb+srv://sodro:nguyenqb242@cluster0.yagvrav.mong
 const URL_MONGDB_LE = '';
 
 const authRoutes = require('./Routes/auth');
+const feedRoutes = require('./Routes/feed');
 
 const fileStorage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -42,6 +43,8 @@ app.use((req, res, next) => {
 })
 
 app.use('/users' , authRoutes);
+app.use('/feed', feedRoutes);
+
 
 app.use((error, req, res, next) => {
     console.log(error);

@@ -2,7 +2,8 @@ import React, {Component, Fragment} from "react";
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 
 import Login from './pages/Login';
-
+import LoginPage from './pages/Auth/Login.js';
+import Toolbar from './components/Toolbar/Toolbar.js';
 import ForgetPass from './pages/Forget_pass';
 import ResetPassword from './pages/Reset_pass';  // Giả sử bạn cũng đã tạo một component ForgetPass
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -13,6 +14,7 @@ import Chats from "./pages/dashboard/Chats.js";
 import Backdrop from './components/Backdrop/Backdrop';
 import ErrorHandler from './components/ErrorHandler/ErrorHandler.js';
 import Layout from './components/Layout/Layout.js';
+import MainNavigation from './components/Navigation/MainNavigation/MainNavigation.js'
 
 class App extends Component {
     state = {
@@ -56,7 +58,7 @@ class App extends Component {
       loginHandler = (event, authData) => {
         event.preventDefault();
         this.setState({ authLoading: true });
-        fetch('http://localhost:8080/auth/login', {
+        fetch('http://localhost:3030/users/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -160,7 +162,7 @@ class App extends Component {
                     path="/"
                     exact
                     render={props => (
-                        <Login
+                        <LoginPage
                         {...props}
                         onLogin={this.loginHandler}
                         loading={this.state.authLoading}
@@ -202,7 +204,15 @@ class App extends Component {
         )}
         <ErrorHandler error={this.state.error} onHandle={this.errorHandler} />
         <Layout
-          
+          headers={
+            <Toolbar>
+              <MainNavigation
+                onOpenMobileNav={this.mobileNavHandler.bind(this, true)}
+                onLogout={this.logoutHandler}
+                isAuth={this.state.isAuth}
+              />
+            </Toolbar>
+          }
         />
         {routes}
       </Fragment>
