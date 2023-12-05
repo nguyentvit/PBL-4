@@ -1,14 +1,21 @@
 .auth-form {
-    width: 90%;
-    margin: auto;
-    padding: 1rem;
-    border: 1px solid #3b0062;
-    border-radius: 5px;
+  background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
+  background: linear-gradient(to right, #adeff9, rgb(65, 198, 255));
+  margin-left: 380px;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+  width: 600px;
+  padding: 5px;
+  max-width: 100%;
+  min-height: 450px;
   }
   
+/*   
   @media (min-width: 768px) {
     .auth-form {
       width: 40rem;
     }
   }
-  
+   */

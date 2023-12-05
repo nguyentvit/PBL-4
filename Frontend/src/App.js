@@ -6,11 +6,8 @@ import LoginPage from './pages/Auth/Login.js';
 import Toolbar from './components/Toolbar/Toolbar.js';
 import ForgetPass from './pages/Forget_pass';
 import ResetPassword from './pages/Reset_pass';  // Giả sử bạn cũng đã tạo một component ForgetPass
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import Login from './Login';
-// import ForgetPass from './ForgetPass'; // Đây là tên file chứa component ForgetPass
 import DashboardLayout from './pages/Trangchu';
-import Chats from "./pages/dashboard/Chats.js";
+import Chats from "./pages/dashboard/Chat.js";
 import Backdrop from './components/Backdrop/Backdrop';
 import ErrorHandler from './components/ErrorHandler/ErrorHandler.js';
 import Layout from './components/Layout/Layout.js';
